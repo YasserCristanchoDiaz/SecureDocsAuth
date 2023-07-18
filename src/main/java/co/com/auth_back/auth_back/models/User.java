@@ -20,6 +20,9 @@ public class User extends GeneralModel{
     private String name;
     @Column(nullable = false,length = 64)
     private String lastName;
+
+    @Column(nullable = false, length =64)
+    private String phone;
     @Column(nullable = false,length = 1)
     private char role;
 
