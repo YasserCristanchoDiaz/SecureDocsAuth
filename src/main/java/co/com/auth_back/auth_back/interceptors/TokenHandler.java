@@ -1,5 +1,6 @@
 package co.com.auth_back.auth_back.interceptors;
 
+import co.com.auth_back.auth_back.constants.MessageConstants;
 import co.com.auth_back.auth_back.models.User;
 import co.com.auth_back.auth_back.service.UserService;
 import co.com.auth_back.auth_back.utils.RequestUtil;
@@ -41,10 +42,10 @@ public class TokenHandler implements HandlerInterceptor {
             if (isValidInPermissionList(role, permissions) && isValidInUserList(id,role)) {
                 return true;
             }
-            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "");
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, MessageConstants.UNAUTHORIZED_TOKEN);
             return false;
         } catch (Exception e) {
-            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "");
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, MessageConstants.UNAUTHORIZED_TOKEN);
             return false;
         }
     }
