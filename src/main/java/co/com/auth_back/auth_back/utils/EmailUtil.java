@@ -1,6 +1,7 @@
 package co.com.auth_back.auth_back.utils;
 
 import co.com.auth_back.auth_back.models.User;
+import co.com.auth_back.auth_back.models.utils.Email;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
@@ -36,7 +37,7 @@ public class EmailUtil {
         mProperties.setProperty("mail.smtp.auth", "true");
     }
 
-    public static void sendEmail() {
+    public static void sendEmail(Email email) {
         Thread emailThread = new Thread(() -> {
             try {
                 Session mSession = Session.getDefaultInstance(mProperties);
@@ -46,9 +47,9 @@ public class EmailUtil {
                 mMail = new MimeMessage(mSession);
                 mMail.setFrom(new InternetAddress(authEmail));
 
-                //mMail.setRecipient(Message.RecipientType.TO, new InternetAddress(email.getEmailTo()));
-                //mMail.setSubject(email.getSubject());
-                //mMail.setText(email.getContent(), "ISO-8859-1", "html");
+                mMail.setRecipient(Message.RecipientType.TO, new InternetAddress(email.getEmailTo()));
+                mMail.setSubject(email.getSubject());
+                mMail.setText(email.getContent(), "ISO-8859-1", "html");
                 mTransport.sendMessage(mMail, mMail.getRecipients(Message.RecipientType.TO));
                 mTransport.close();
             } catch (MessagingException ex) {
@@ -91,8 +92,8 @@ public class EmailUtil {
 
         String temporalToken = TokenUtil.generateToken(tokenData);
 
-        //Email email = new Email(mail, "Completa tu registro", EmailUtil.getUserRegisterTemplate(temporalToken, code));
-        //EmailUtil.sendEmail(email);
+        Email email = new Email(mail, "Completa tu registro", EmailUtil.getUserRegisterTemplate(temporalToken, code));
+        EmailUtil.sendEmail(email);
 
         return temporalToken;
     }
@@ -111,8 +112,8 @@ public class EmailUtil {
 
         String temporalToken = TokenUtil.generateToken(tokenData);
 
-        //Email email = new Email(mail, "Recupera tu contraseña: ", EmailUtil.getUserRecoveryTemplate(temporalToken, code));
-        //EmailUtil.sendEmail(email);
+        Email email = new Email(mail, "Recupera tu contraseña: ", EmailUtil.getUserRecoveryTemplate(temporalToken, code));
+        EmailUtil.sendEmail(email);
 
         return temporalToken;
     }
