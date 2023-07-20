@@ -25,6 +25,8 @@ public class User extends GeneralModel{
     @Column(nullable = false,length = 1)
     private char role;
 
+    @Column(nullable = false, length = 1)
+    private String active;
     @OneToOne
     @JoinColumn(name="credential_id")
     @JsonIgnore
@@ -35,9 +37,12 @@ public class User extends GeneralModel{
 
 
     public User(User user) {
-        this.name = user.name;
-        this.lastName = user.lastName;
-        this.role = user.role;
-        this.credential = user.credential;
+        this.name = name;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.role = role;
+        this.active=active;
+        this.credential = credential;
+        this.documents = documents;
     }
 }

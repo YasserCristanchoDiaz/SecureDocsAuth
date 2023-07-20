@@ -43,9 +43,23 @@ public interface CRUDService<T>{
     public T save(T t) throws Exception;
 
     /**
+     * Obtiene los registros según el filtro
+     * @param t el filtro
+     * @param page la cantidad de registros
+     * @return registros filtrados
+     */
+    public List<T> getAllByFilter(T t, Pageable page);
+
+    /**
+     * Obtiene la cantidad de registros que se tienen segun un filtro
+     * @param t elfiltro que se desea aplicar
+     * @return la cantidad de registros encontrados segun el filtro
+     */
+    public long countByFilter(T t);
+    /**
      *Elimina un registro específico
      * @param Id Valor identificador del registro que sedesea eliminar
-     * @throws Exception error en cao de que falle laeliminación
+     * @throws Exception error en caso de que falle la eliminación
      */
     public void delete(String Id) throws Exception;
 

@@ -1,5 +1,6 @@
 package co.com.auth_back.auth_back.service;
 
+import co.com.auth_back.auth_back.constants.MessageConstants;
 import co.com.auth_back.auth_back.interfaces.CRUDService;
 import co.com.auth_back.auth_back.models.GeneralModel;
 import co.com.auth_back.auth_back.repositories.GeneralRepository;
@@ -50,6 +51,21 @@ public abstract class GeneralService<T extends GeneralModel> implements CRUDServ
     }
 
     /**
+     * Obtiene todos los registros según lo aplicado en el filtro
+      * @param t el filtro
+     * @param page la cantidad de registros
+     * @return la lista de los registros
+     */
+    @Override
+    public List<T> getAllByFilter(T t ,Pageable page){
+        return generalRepository.findByFilter(t,page);
+    }
+
+    @Override
+    public long countByFilter(T t){
+        return generalRepository.countByFilter(t);
+    }
+    /**
      * S e obtiene un elemento a partir de u id de registro
      * @param id valor por el que se quiere buscar el registro
      * @return Un optional que contiene el registro T en casodeque exista
@@ -59,7 +75,7 @@ public abstract class GeneralService<T extends GeneralModel> implements CRUDServ
     public T findById(String id) throws Exception{
         Optional<T> t = generalRepository.findById(id);
         if(t.isEmpty()){
-            throw new Exception();
+            throw new Exception(MessageConstants.EMPTY_MESSAGE);
         }
     return t.get();
     }
@@ -75,7 +91,7 @@ public abstract class GeneralService<T extends GeneralModel> implements CRUDServ
         try{
             return generalRepository.save(t);
         }catch(Exception e){
-            throw new Exception();
+            throw new Exception(MessageConstants.DUPLICATED_MESSAGE);
         }
     }
 
@@ -89,7 +105,7 @@ public abstract class GeneralService<T extends GeneralModel> implements CRUDServ
         try {
             generalRepository.deleteById(id);
         }catch(Exception e){
-            throw new Exception();
+            throw new Exception(MessageConstants.FAILED_MESSAGE);
         }
     }
 
