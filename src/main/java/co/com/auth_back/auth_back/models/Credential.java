@@ -1,5 +1,7 @@
 package co.com.auth_back.auth_back.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import lombok.Getter;
@@ -15,8 +17,12 @@ public class Credential extends GeneralModel{
 
     @Column(nullable = false,length = 60, unique = true)
     private String mail;
-    @Column(nullable = false)
+    @Column(nullable = true)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
+    @Column(nullable = true)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private String code;
     @Column(nullable = false,length = 12,unique = true)
     private String userName;
 
@@ -25,6 +31,7 @@ public class Credential extends GeneralModel{
         return "Credential{" +
                 "mail='" + mail + '\'' +
                 ", password='" + password + '\'' +
+                ", code='" + code + '\'' +
                 ", userName='" + userName + '\'' +
                 '}';
     }

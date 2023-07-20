@@ -10,6 +10,6 @@ public interface CredentialRepository extends GeneralRepository<Credential>{
 
     //public List<Credential> findAll(Pageable page);
     public Optional<Credential> findByUserOrMail(String user,String mail);
-    public void deleteById(String id);
+    //public void deleteById(String id);
 
 }
