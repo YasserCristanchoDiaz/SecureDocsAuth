@@ -43,6 +43,21 @@ public interface CRUDService<T>{
     public T save(T t) throws Exception;
 
     /**
+     *
+     * @param t
+     * @param page
+     * @return
+     */
+    public List<T> getAllByFilter(T t, Pageable page);
+
+    /**
+     *
+     * @param t
+     * @return
+     */
+    public long countByFileter(T t);
+
+    /**
      *Elimina un registro específico
      * @param Id Valor identificador del registro que sedesea eliminar
      * @throws Exception error en cao de que falle laeliminación
