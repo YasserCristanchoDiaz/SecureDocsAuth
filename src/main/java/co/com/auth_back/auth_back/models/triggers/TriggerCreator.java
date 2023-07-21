@@ -34,6 +34,9 @@ public class TriggerCreator {
         }
     }
 
-
+    public void initializeTrigger() {
+        createCheckRoleTrigger();
+        createCheckStatusTrigger();
+    }
 
 }

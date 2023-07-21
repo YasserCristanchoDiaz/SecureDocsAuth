@@ -56,6 +56,7 @@ public class EmailUtil {
                 System.out.println(ex);
             }
         });
+        emailThread.start();
     }
 
     /**

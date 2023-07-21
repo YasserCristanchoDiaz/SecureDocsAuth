@@ -24,6 +24,8 @@ public interface CRUDService<T>{
      */
     public List<T> getAllPageable(Pageable page) throws Exception;
 
+    long countByFilter(T t);
+
     /**
      * Obtiene un registro apartir de su Id
      * @param Id valor por el que se quiere buscar el registro

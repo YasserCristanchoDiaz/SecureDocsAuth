@@ -57,7 +57,7 @@ public interface CRUDController<T>{
      * @return cantidad de registros
      * @throws Exception
      */
-    @PostMapping(RoutesConstants.GET_ALL_BY_FILTERS)
+    @PostMapping(RoutesConstants.COUNT_ALL_BY_FILTERS)
     public long countAllByFilters(@RequestBody T t) throws Exception;
 
     /**

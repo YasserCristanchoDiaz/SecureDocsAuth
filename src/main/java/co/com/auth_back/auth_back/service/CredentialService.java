@@ -2,7 +2,6 @@ package co.com.auth_back.auth_back.service;
 
 import co.com.auth_back.auth_back.models.Credential;
 import co.com.auth_back.auth_back.repositories.CredentialRepository;
-import co.com.auth_back.auth_back.repositories.GeneralRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -18,6 +17,11 @@ public class CredentialService extends GeneralService<Credential>{
     }
 
     public Optional<Credential> findByUserAndMail(String id){
-        return credentialRepository.findByUserOrMail(id,id);
+        return credentialRepository.findByUserNameOrMail(id,id);
+    }
+
+    @Override
+    public long countByFileter(Credential credential) {
+        return 0;
     }
 }

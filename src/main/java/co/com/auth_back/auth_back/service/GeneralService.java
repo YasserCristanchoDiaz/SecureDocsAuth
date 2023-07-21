@@ -87,7 +87,7 @@ public abstract class GeneralService<T extends GeneralModel> implements CRUDServ
      * @throws Exception En caso de obtener un datoduplicado o que no se cumpla con las condiciones del registro
      */
     @Override
-    public  T save(T t) throws Exception{
+    public T save(T t) throws Exception {
         try{
             return generalRepository.save(t);
         }catch(Exception e){
