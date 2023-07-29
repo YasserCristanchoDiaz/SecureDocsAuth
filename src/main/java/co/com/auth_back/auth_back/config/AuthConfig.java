@@ -3,10 +3,14 @@ package co.com.auth_back.auth_back.config;
 import co.com.auth_back.auth_back.interceptors.LoggerInterceptor;
 import co.com.auth_back.auth_back.interceptors.TokenHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+@Component
+@EnableWebMvc
 public class AuthConfig implements WebMvcConfigurer {
     private final TokenHandler tokenHandler;
     private final LoggerInterceptor loggerInterceptor;
@@ -19,12 +23,13 @@ public class AuthConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry interceptorRegistry) {
-        interceptorRegistry.addInterceptor(tokenHandler).addPathPatterns("/**");
+        interceptorRegistry.addInterceptor(loggerInterceptor).addPathPatterns("/**");
         initializeAuthRoute(interceptorRegistry);
         initializeUserRoute(interceptorRegistry);
     }
 
     private void initializeAuthRoute(InterceptorRegistry interceptorRegistry) {
+        this.tokenHandler.addToPermissionListByPath("auth", new char[]{'A', 'L', 'E'});
         interceptorRegistry.addInterceptor(tokenHandler).addPathPatterns("/auth/**").excludePathPatterns(
                 "/auth/login",
                 "/auth/register",
@@ -35,7 +40,7 @@ public class AuthConfig implements WebMvcConfigurer {
     }
 
     private void initializeUserRoute(InterceptorRegistry interceptorRegistry) {
-        this.tokenHandler.addToPermissionListByPath("user", new char[]{'C', 'M'});
+        this.tokenHandler.addToPermissionListByPath("user", new char[]{'A', 'L', 'E'});
         interceptorRegistry.addInterceptor(tokenHandler).addPathPatterns("/user/**");
     }
 

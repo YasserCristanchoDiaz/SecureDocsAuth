@@ -61,6 +61,9 @@ public class TokenHandler implements HandlerInterceptor {
     }
 
     private boolean isValidInPermissionList(char role, char[] permissions) {
+        if(permissions.length == 0){
+            return true;
+        }
         for(char permission : permissions) {
             if (role == permission)
                 return true;

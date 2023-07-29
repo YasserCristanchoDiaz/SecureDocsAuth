@@ -24,7 +24,7 @@ import java.util.Map;
 
 @Component
 public class TokenUtil {
-    private static final long EXPIRATION_TIME = 86400000;
+    private static final long EXPIRATION_TIME = 60 * 1000;///Tiempo de inactividad
     private static Algorithm algorithm;
     private static String privateRSA;
     private static String publicRSA;
