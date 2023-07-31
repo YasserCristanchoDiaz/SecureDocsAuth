@@ -48,7 +48,7 @@ public class AuthConfig implements WebMvcConfigurer {
         corsRegistry.addMapping("/**")
                 .allowedOrigins("http://localhost:3000")
                 .allowedMethods("PUT","DELETE","POST","GET","OPTIONS")
-                .allowedHeaders("Autorization", "Content-Type")
+                .allowedHeaders("Authorization", "Content-Type")
                 .allowCredentials(true)
                 .maxAge(3600);
     }
