@@ -103,16 +103,7 @@ public class CredentialController extends GeneralController<Credential> {
             throw new Exception(StatusConstants.UNAUTHORIZED);
         }
 
-
         Attempts attempts = attemptsService.findByCredential(credentialFound.get());
-
-        if (attempts == null){
-            attempts = new Attempts();
-            attempts.setCredential(credentialFound.get());
-            attempts.setDateTimeAttempt(LocalDateTime.now());
-            attempts.setNAttempt(0);
-            attemptsService.save(attempts);
-        }
 
         if (attempts != null && attempts.getNAttempt() == 3){
             throw new Exception(StatusConstants.UNAUTHORIZED);
@@ -131,6 +122,8 @@ public class CredentialController extends GeneralController<Credential> {
         if (!state) {
             if(attempts == null){
                 attempts = new Attempts();
+                attempts.setCredential(credentialFound.get());
+                attempts.setDateTimeAttempt(LocalDateTime.now());
                 attempts.setNAttempt(1);
             } else{
                 attempts.setNAttempt(attempts.getNAttempt()+1);
