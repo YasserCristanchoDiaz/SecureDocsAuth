@@ -4,8 +4,12 @@ import co.com.auth_back.auth_back.constants.MessageConstants;
 import co.com.auth_back.auth_back.constants.StatusConstants;
 import co.com.auth_back.auth_back.dto.PasswordChangeDTO;
 import co.com.auth_back.auth_back.dto.RegisterUserDTO;
+import co.com.auth_back.auth_back.models.AccessHours;
+import co.com.auth_back.auth_back.models.Attempts;
 import co.com.auth_back.auth_back.models.Credential;
 import co.com.auth_back.auth_back.models.User;
+import co.com.auth_back.auth_back.service.AccessHoursService;
+import co.com.auth_back.auth_back.service.AttemptsService;
 import co.com.auth_back.auth_back.service.CredentialService;
 import co.com.auth_back.auth_back.service.UserService;
 import co.com.auth_back.auth_back.utils.EmailUtil;
@@ -17,6 +21,8 @@ import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.transaction.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,11 +34,15 @@ import java.util.Optional;
 public class CredentialController extends GeneralController<Credential> {
     private final CredentialService credentialService;
     private final UserService userService;
+    private final AccessHoursService accessHoursService;
+    private final AttemptsService attemptsService;
 
-    public CredentialController(CredentialService credentialService, UserService userService) {
+    public CredentialController(CredentialService credentialService, UserService userService, AccessHoursService accessHoursService, AttemptsService attemptsService) {
         super(credentialService);
         this.credentialService = credentialService;
         this.userService = userService;
+        this.accessHoursService = accessHoursService;
+        this.attemptsService = attemptsService;
     }
 
     @Override
@@ -93,13 +103,42 @@ public class CredentialController extends GeneralController<Credential> {
             throw new Exception(StatusConstants.UNAUTHORIZED);
         }
 
-        boolean state = EncryptUtil.checkValues(credential.getPassword(), credentialFound.get().getPassword());
-        if (!state) {
+
+        Attempts attempts = attemptsService.findByCredential(credentialFound.get());
+
+        if (attempts == null){
+            attempts = new Attempts();
+            attempts.setCredential(credentialFound.get());
+            attempts.setDateTimeAttempt(LocalDateTime.now());
+            attempts.setNAttempt(0);
+            attemptsService.save(attempts);
+        }
+
+        if (attempts != null && attempts.getNAttempt() == 3){
             throw new Exception(StatusConstants.UNAUTHORIZED);
         }
 
-        Credential credentialData = credentialFound.get();
-        User user = userService.getByCredential(credentialData);
+        User user = userService.getByCredential(credentialFound.get());
+        AccessHours accessHours = accessHoursService.getAccessHoursByRol(String.valueOf(user.getRole()));
+
+        LocalTime actualHour = LocalTime.now();
+
+        if ( actualHour.isAfter(accessHours.getEndHour()) || actualHour.isBefore(accessHours.getStarHour()) ) {
+            throw new Exception(StatusConstants.UNAUTHORIZED);
+        }
+
+        boolean state = EncryptUtil.checkValues(credential.getPassword(), credentialFound.get().getPassword());
+        if (!state) {
+            if(attempts == null){
+                attempts = new Attempts();
+                attempts.setNAttempt(1);
+            } else{
+                attempts.setNAttempt(attempts.getNAttempt()+1);
+            }
+            attemptsService.save(attempts);
+            response.put("MessageError", "Estado Fallido");
+            return response;
+        }
 
         if (user.getActive().equals("N")){
             throw new Exception(StatusConstants.UNAUTHORIZED);

@@ -24,4 +24,5 @@ public class CredentialService extends GeneralService<Credential>{
     public long countByFileter(Credential credential) {
         return 0;
     }
+
 }
