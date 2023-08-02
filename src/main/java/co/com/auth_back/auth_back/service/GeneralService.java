@@ -39,6 +39,11 @@ public abstract class GeneralService<T extends GeneralModel> implements CRUDServ
         return (List<T>) generalRepository.findAll();
     }
 
+    @Override
+    public long countByFileter(T t) {
+        return 0;
+    }
+
     /**
      * Obtiene todos los datos teniendo en cuenta el paginado
      * @param page paginador con la página y los registros

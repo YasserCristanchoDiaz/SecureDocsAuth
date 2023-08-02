@@ -103,7 +103,7 @@ public class CredentialController extends GeneralController<Credential> {
             throw new Exception(StatusConstants.UNAUTHORIZED);
         }
 
-        Attempts attempts = attemptsService.findByCredential(credentialFound.get());
+         Attempts attempts = attemptsService.findByCredential(credentialFound.get());
 
         if (attempts != null && attempts.getNAttempt() == 3){
             throw new Exception(StatusConstants.UNAUTHORIZED);

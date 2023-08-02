@@ -21,9 +21,5 @@ public class UserService extends GeneralService<User>{
         return userRepository.findByCredential(credential);
     }
 
-    @Override
-    public long countByFileter(User user) {
-        return 0;
-    }
 }
 

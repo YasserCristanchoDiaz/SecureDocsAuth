@@ -100,6 +100,7 @@ public abstract class GeneralController <T extends GeneralModel> implements CRUD
      * @return el elementos creado
      * @throws Exception
      */
+    @Override
     public T create(T t) throws Exception{
         return generalService.save(t);
     }
@@ -110,6 +111,7 @@ public abstract class GeneralController <T extends GeneralModel> implements CRUD
      * @return el elementos actualizado
      * @throws Exception
      */
+    @Override
     public T update(T t) throws Exception{
         T tFound = generalService.findById(t.getId());
         return generalService.save(t);
