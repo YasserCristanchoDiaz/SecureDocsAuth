@@ -40,7 +40,7 @@ public class AuthConfig implements WebMvcConfigurer {
     }
 
     private void initializeUserRoute(InterceptorRegistry interceptorRegistry) {
-        this.tokenHandler.addToPermissionListByPath("user", new char[]{'A', 'L', 'E'});
+        this.tokenHandler.addToPermissionListByPath("user", new char[]{'A'});
         interceptorRegistry.addInterceptor(tokenHandler).addPathPatterns("/user/**");
     }
 

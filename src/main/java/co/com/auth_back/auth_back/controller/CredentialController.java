@@ -267,6 +267,14 @@ public class CredentialController extends GeneralController<Credential> {
 
     @Override
     public Map<String, String> delete(String id) throws Exception {
+        /*User findUser = userService.findById(id);
+        userService.delete(findUser.getId());
+        credentialService.delete(id);
+
+        Map<String, String> response = new HashMap<>();
+        response.put("message", MessageConstants.SUCCESS_MESSAGE);
+
+        return response;*/
         throw new Exception("No implementado");
     }
 }
