@@ -7,6 +7,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
+import java.util.Date;
+
 @Component
 public class LoggerInterceptor implements HandlerInterceptor {
 
@@ -15,8 +17,10 @@ public class LoggerInterceptor implements HandlerInterceptor {
         String clientIp = HttpUtils.getRequestIp(request);
         String method = request.getMethod();
 
+        Date now = new Date();
+        String timestamp = now.toString();
         int status = response.getStatus();
 
-        LoggerUtil.petitionLog(url, method, String.valueOf(status), clientIp);
+        LoggerUtil.petitionLog(url,timestamp, method, String.valueOf(status), clientIp);
     }
 }

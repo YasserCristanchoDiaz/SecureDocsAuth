@@ -1,0 +1,84 @@
+2023-08-02T18:36:28.462-05:00  INFO 20712 --- [main] c.c.a.auth_back.AuthBackApplication      : Starting AuthBackApplication using Java 18.0.1.1 with PID 20712 (C:\Users\juana\IdeaProjects\SecureDocsAuth\target\classes started by juana in C:\Users\juana\IdeaProjects\SecureDocsAuth)
+2023-08-02T18:36:28.465-05:00  INFO 20712 --- [main] c.c.a.auth_back.AuthBackApplication      : No active profile set, falling back to 1 default profile: "default"
+2023-08-02T18:36:29.729-05:00  INFO 20712 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-02T18:36:29.829-05:00  INFO 20712 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 90 ms. Found 6 JPA repository interfaces.
+2023-08-02T18:36:30.499-05:00  INFO 20712 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7879 (http)
+2023-08-02T18:36:30.510-05:00  INFO 20712 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-02T18:36:30.511-05:00  INFO 20712 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-08-02T18:36:30.637-05:00  INFO 20712 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-02T18:36:30.638-05:00  INFO 20712 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2085 ms
+2023-08-02T18:36:30.848-05:00  INFO 20712 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-02T18:36:30.928-05:00  INFO 20712 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
+2023-08-02T18:36:30.930-05:00  INFO 20712 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-08-02T18:36:31.114-05:00  INFO 20712 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-02T18:36:31.227-05:00  INFO 20712 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-02T18:36:31.243-05:00  INFO 20712 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-02T18:36:31.799-05:00  INFO 20712 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@719c1faf
+2023-08-02T18:36:31.802-05:00  INFO 20712 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-02T18:36:32.188-05:00  INFO 20712 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-02T18:36:32.937-05:00  INFO 20712 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-02T18:36:33.275-05:00  INFO 20712 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-02T18:36:33.538-05:00  INFO 20712 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-08-02T18:36:34.194-05:00  WARN 20712 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-02T18:36:34.731-05:00  INFO 20712 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7879 (http) with context path ''
+2023-08-02T18:36:34.744-05:00  INFO 20712 --- [main] c.c.a.auth_back.AuthBackApplication      : Started AuthBackApplication in 7.135 seconds (process running for 8.326)
+2023-08-02T18:36:34.770-05:00  INFO 20712 --- [main] c.c.a.auth_back.utils.LoggerUtil         : Trigger role validator alredy exist
+2023-08-02T18:36:34.775-05:00  INFO 20712 --- [main] c.c.a.auth_back.utils.LoggerUtil         : Trigger status validator already exist 
+2023-08-02T18:37:03.068-05:00  INFO 20712 --- [http-nio-7879-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-02T18:37:03.069-05:00  INFO 20712 --- [http-nio-7879-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-08-02T18:37:03.072-05:00  INFO 20712 --- [http-nio-7879-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2023-08-02T18:37:03.943-05:00  INFO 20712 --- [http-nio-7879-exec-1] c.c.a.auth_back.utils.LoggerUtil         : Url: [/auth/login] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-02T18:37:04.423-05:00  INFO 20712 --- [http-nio-7879-exec-2] c.c.a.auth_back.utils.LoggerUtil         : Url: [/user/getAll] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-02T18:37:04.595-05:00  INFO 20712 --- [http-nio-7879-exec-3] c.c.a.auth_back.utils.LoggerUtil         : Url: [/user/getAll] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-02T18:38:39.044-05:00  INFO 20712 --- [http-nio-7879-exec-6] c.c.a.auth_back.utils.LoggerUtil         : Url: [/auth/login] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-02T18:38:39.567-05:00  INFO 20712 --- [http-nio-7879-exec-5] c.c.a.auth_back.utils.LoggerUtil         : Url: [/user/getAll] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-02T18:39:18.855-05:00  INFO 20712 --- [http-nio-7879-exec-8] c.c.a.auth_back.utils.LoggerUtil         : Url: [/auth/login] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-02T18:39:58.553-05:00  INFO 20712 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-02T18:39:58.557-05:00  INFO 20712 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-08-02T18:39:58.572-05:00  INFO 20712 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-08-02T20:03:01.657-05:00  INFO 26800 --- [main] c.c.a.auth_back.AuthBackApplication      : Starting AuthBackApplication using Java 18.0.1.1 with PID 26800 (C:\Users\juana\IdeaProjects\SecureDocsAuth\target\classes started by juana in C:\Users\juana\IdeaProjects\SecureDocsAuth)
+2023-08-02T20:03:01.662-05:00  INFO 26800 --- [main] c.c.a.auth_back.AuthBackApplication      : No active profile set, falling back to 1 default profile: "default"
+2023-08-02T20:03:03.417-05:00  INFO 26800 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-02T20:03:03.551-05:00  INFO 26800 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 118 ms. Found 6 JPA repository interfaces.
+2023-08-02T20:03:05.099-05:00  INFO 26800 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7879 (http)
+2023-08-02T20:03:05.116-05:00  INFO 26800 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-02T20:03:05.116-05:00  INFO 26800 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2023-08-02T20:03:05.357-05:00  INFO 26800 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-02T20:03:05.359-05:00  INFO 26800 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3557 ms
+2023-08-02T20:03:06.029-05:00  INFO 26800 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-02T20:03:06.177-05:00  INFO 26800 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
+2023-08-02T20:03:06.182-05:00  INFO 26800 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-08-02T20:03:06.597-05:00  INFO 26800 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-02T20:03:06.922-05:00  INFO 26800 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-02T20:03:06.981-05:00  INFO 26800 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-02T20:03:08.188-05:00  INFO 26800 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1c00d406
+2023-08-02T20:03:08.196-05:00  INFO 26800 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-02T20:03:09.084-05:00  INFO 26800 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-02T20:03:10.921-05:00  INFO 26800 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-02T20:03:11.798-05:00  INFO 26800 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-02T20:03:12.343-05:00  INFO 26800 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-08-02T20:03:13.712-05:00  WARN 26800 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-02T20:03:14.787-05:00  INFO 26800 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7879 (http) with context path ''
+2023-08-02T20:03:14.807-05:00  INFO 26800 --- [main] c.c.a.auth_back.AuthBackApplication      : Started AuthBackApplication in 14.485 seconds (process running for 15.907)
+2023-08-02T20:03:14.872-05:00  INFO 26800 --- [main] c.c.a.auth_back.utils.LoggerUtil         : Trigger role validator alredy exist
+2023-08-02T20:03:14.880-05:00  INFO 26800 --- [main] c.c.a.auth_back.utils.LoggerUtil         : Trigger status validator already exist 
+2023-08-02T20:04:11.930-05:00  INFO 26800 --- [http-nio-7879-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-02T20:04:11.931-05:00  INFO 26800 --- [http-nio-7879-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-08-02T20:04:11.935-05:00  INFO 26800 --- [http-nio-7879-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2023-08-02T20:04:11.994-05:00  INFO 26800 --- [http-nio-7879-exec-1] c.c.a.auth_back.utils.LoggerUtil         : Url: [/auth/login] Date[Wed Aug 02 20:04:11 COT 2023] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-02T20:04:12.566-05:00  INFO 26800 --- [http-nio-7879-exec-2] c.c.a.auth_back.utils.LoggerUtil         : Url: [/auth/login] Date[Wed Aug 02 20:04:12 COT 2023] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-02T20:06:21.252-05:00  INFO 26800 --- [http-nio-7879-exec-4] c.c.a.auth_back.utils.LoggerUtil         : Url: [/auth/login] Date[Wed Aug 02 20:06:21 COT 2023] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-02T20:06:25.121-05:00  INFO 26800 --- [http-nio-7879-exec-6] c.c.a.auth_back.utils.LoggerUtil         : Url: [/user/getAll] Date[Wed Aug 02 20:06:25 COT 2023] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-02T20:06:25.307-05:00  INFO 26800 --- [http-nio-7879-exec-7] c.c.a.auth_back.utils.LoggerUtil         : Url: [/user/getAll] Date[Wed Aug 02 20:06:25 COT 2023] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-02T20:06:40.696-05:00  INFO 26800 --- [http-nio-7879-exec-8] c.c.a.auth_back.utils.LoggerUtil         : Url: [/user/create] Date[Wed Aug 02 20:06:40 COT 2023] Method: [OPTIONS] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-02T20:06:40.800-05:00  INFO 26800 --- [http-nio-7879-exec-5] c.c.a.auth_back.utils.LoggerUtil         : Url: [/user/create] Date[Wed Aug 02 20:06:40 COT 2023] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-02T20:06:40.878-05:00  INFO 26800 --- [http-nio-7879-exec-10] c.c.a.auth_back.utils.LoggerUtil         : Url: [/user/getAll] Date[Wed Aug 02 20:06:40 COT 2023] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-02T20:06:47.153-05:00  INFO 26800 --- [http-nio-7879-exec-1] c.c.a.auth_back.utils.LoggerUtil         : Url: [/user/create] Date[Wed Aug 02 20:06:47 COT 2023] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-02T20:06:47.222-05:00  INFO 26800 --- [http-nio-7879-exec-2] c.c.a.auth_back.utils.LoggerUtil         : Url: [/user/getAll] Date[Wed Aug 02 20:06:47 COT 2023] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-02T20:06:58.221-05:00  INFO 26800 --- [http-nio-7879-exec-4] c.c.a.auth_back.utils.LoggerUtil         : Url: [/auth/login] Date[Wed Aug 02 20:06:58 COT 2023] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-02T20:06:58.367-05:00  INFO 26800 --- [http-nio-7879-exec-6] c.c.a.auth_back.utils.LoggerUtil         : Url: [/user/getAll] Date[Wed Aug 02 20:06:58 COT 2023] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-02T20:07:16.899-05:00  INFO 26800 --- [http-nio-7879-exec-9] c.c.a.auth_back.utils.LoggerUtil         : Url: [/user/create] Date[Wed Aug 02 20:07:16 COT 2023] Method: [POST] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-02T20:07:16.995-05:00  INFO 26800 --- [http-nio-7879-exec-8] c.c.a.auth_back.utils.LoggerUtil         : Url: [/user/getAll] Date[Wed Aug 02 20:07:16 COT 2023] Method: [GET] Status: [200] Ip: [0:0:0:0:0:0:0:1]
+2023-08-02T20:08:05.188-05:00  INFO 26800 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-02T20:08:05.194-05:00  INFO 26800 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-08-02T20:08:05.209-05:00  INFO 26800 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
